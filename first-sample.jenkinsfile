@@ -1,0 +1,36 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building...'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing...'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying...'
+            }
+        }
+    }
+    post {
+        changed {
+           echo 'pipeline post changed'
+        }
+        always {
+           echo 'pipeline post always'
+        }
+        success {
+           echo 'pipeline post success'
+           // mail bcc: '', body: 'Your Jenkins Pipeline run succeed.', cc: '', from: '', replyTo: '', subject: 'The Pipeline succeed', to: '278916424@qq.com'
+        }
+        failure {
+           echo 'pipeline post failure'
+        }
+    }
+}
+
