@@ -1,24 +1,24 @@
 pipeline {
     agent any
-    stages {
-        stage('checkout'){
-            steps{
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'a527703e-e7cf-48e5-a25f-7dba0d3a7476', url: 'git@github.com:shanyongsy/go-study.git']]])
+    stages 
+        stage('Checkout') {
+            steps {
+                checkout scm
             }
         }
         stage('Build') {
             steps {
-                echo 'Building...'
+                echo 'Building...1'
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing...'
+                echo 'Testing...2'
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying...'
+                echo 'Deploying...3'
             }
         }
     }
