@@ -18,13 +18,13 @@ pipeline {
             }
         }
         stage('show go version'){
-            timeout(time: 10, unit:'MINUTES'){
-                steps{
-                    //def root = tool name: 'Go 1.17.2', type: 'go'
-                    //withEnv(["GOROOT=${root}", "PATH+GO=${root}/bin"]){
-                    //    sh 'go version'
-                    //}
-                    sh "go version"
+            steps{
+                timeout(time: 10, unit:'MINUTES'){
+                        //def root = tool name: 'Go 1.17.2', type: 'go'
+                        //withEnv(["GOROOT=${root}", "PATH+GO=${root}/bin"]){
+                        //    sh 'go version'
+                        //}
+                        sh "go version"
                 }
             }
         }
